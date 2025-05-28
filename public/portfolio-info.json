@@ -1,0 +1,46 @@
+{
+  "title":"Senior Frontend Developer",
+  "name": "Guilherme Manucci",
+  "jobTitle": ".NET Senior Software Engineer",
+  "location": "New York, NY, USA",
+  "mobilePhone": "+1 (555) 123-4567",
+  "email": "john.doe@example.com",
+  "career": [
+    {
+      "title": "Senior Frontend Developer",
+      "company": "Tech Solutions Inc.",
+      "location": "New York, NY",
+      "startDate": "2021-05",
+      "endDate": "Present",
+      "description": "Lead frontend team, architected Angular applications, collaborated with UX/UI teams."
+    },
+    {
+      "title": "Frontend Developer",
+      "company": "Creative Web Agency",
+      "location": "Boston, MA",
+      "startDate": "2018-01",
+      "endDate": "2021-04",
+      "description": "Developed responsive websites and web apps using Angular and React."
+    },
+    {
+      "title": "Junior Web Developer",
+      "company": "Startup Co.",
+      "location": "Remote",
+      "startDate": "2016-06",
+      "endDate": "2017-12",
+      "description": "Assisted in building MVP features and debugging front-end code."
+    }
+  ],
+  "skills": [
+    "Angular",
+    "TypeScript",
+    "JavaScript",
+    "HTML5",
+    "CSS3",
+    "SCSS",
+    "Git",
+    "REST APIs",
+    "Responsive Design",
+    "Agile Methodology"
+  ]
+}
