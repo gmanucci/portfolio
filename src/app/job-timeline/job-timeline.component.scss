@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+@layer components {
+    .timeline-container {
+        position: relative;
+        width: 100%;
+    }
+
+    .line {
+        left: 0;
+        right: 0;
+        height: var(--text-sm);
+        background-color: var(--color-gray-300);
+        transform: translateY(-50%);
+    }
+
+    .pin {
+        position: absolute;
+        width: var(--text-xl);
+        height: var(--text-xl);
+        background-color: var(--color-sky-600);
+        border-radius: 50%;
+        cursor: pointer;
+        transform: translateX(-50%)  translateY(-50%) ;
+        border-color: var(--color-white);
+        border-width: 2px;
+    }
+
+    .pin:hover {
+        background-color: var(--color-sky-950);
+    }
+}

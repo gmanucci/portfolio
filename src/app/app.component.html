@@ -1,4 +1,6 @@
 <main class="main">
   <app-main-view [portfolio]="portfolioInfo"></app-main-view>
+  <app-job-timeline [jobs]="portfolioInfo?.career"></app-job-timeline>
+  <app-skills-container [skills]="portfolioInfo?.skills"></app-skills-container>
 </main>
 <router-outlet />

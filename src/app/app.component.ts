@@ -2,10 +2,12 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { MainViewComponent } from "./main-view/main-view.component";
 import { HttpClient } from '@angular/common/http';
+import { JobTimelineComponent } from "./job-timeline/job-timeline.component";
+import { SkillsContainerComponent } from "./skills-container/skills-container.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, MainViewComponent],
+  imports: [RouterOutlet, MainViewComponent, JobTimelineComponent, SkillsContainerComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

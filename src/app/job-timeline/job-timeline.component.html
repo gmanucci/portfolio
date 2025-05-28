@@ -1,0 +1,11 @@
+<div class="px-10 relative my-6">
+    <div class="timeline-container flex">
+        <div class="line absolute rounded-md"></div>
+        <div
+            *ngFor="let point of timeline"
+            class="pin transition absolute"
+            [style.left]="point.left"
+            [title]="point.title + ' at ' + point.company"
+        ></div>
+    </div>
+</div>

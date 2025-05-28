@@ -1,9 +1,17 @@
-
-<div>
-    <h1>{{portfolio.name}}</h1>
-<div>
-    <p>{{portfolio.jobTitle}}</p>
-    <p>{{portfolio.location}}</p>
-    <p>{{portfolio.mobilePhone}}</p>
-</div>
+<div class="text-center text-sky-950">
+    <h1 class="text-3xl text-sky-950 font-bold">{{portfolio.name}}</h1>
+    <div class="justify-center flex gap-5 mt-5">
+        <div class="flex gap-2">
+            <mat-icon fontIcon="work" class="mat-icon-medium"></mat-icon>
+            <p>{{portfolio.jobTitle}}</p>
+        </div>
+        <div class="flex gap-2">
+            <mat-icon fontIcon="location_on" class="mat-icon-medium"></mat-icon>
+            <p>{{portfolio.location}}</p>
+        </div>
+        <div class="flex gap-2">
+            <mat-icon fontIcon="phone" class="mat-icon-medium"></mat-icon>
+            <p>{{portfolio.mobilePhone}}</p>
+        </div>
+    </div>
 </div>
