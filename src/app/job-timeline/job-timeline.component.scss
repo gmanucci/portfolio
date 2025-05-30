@@ -9,8 +9,8 @@
     .line {
         left: 0;
         right: 0;
-        height: var(--text-sm);
-        background-color: var(--color-gray-300);
+        height: var(--text-xs);
+        background-color: var(--color-manucci-primary);
         transform: translateY(-50%);
     }
 
@@ -18,7 +18,7 @@
         position: absolute;
         width: var(--text-xl);
         height: var(--text-xl);
-        background-color: var(--color-sky-600);
+        background-color: var(--color-manucci-secondary);
         border-radius: 50%;
         cursor: pointer;
         transform: translateX(-50%)  translateY(-50%) ;
@@ -27,6 +27,6 @@
     }
 
     .pin:hover {
-        background-color: var(--color-sky-950);
+        background-color: var(--color-manucci-light);
     }
 }

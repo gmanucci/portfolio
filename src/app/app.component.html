@@ -1,6 +1,14 @@
-<main class="main">
-  <app-main-view [portfolio]="portfolioInfo"></app-main-view>
-  <app-job-timeline [jobs]="portfolioInfo?.career"></app-job-timeline>
-  <app-skills-container [skills]="portfolioInfo?.skills"></app-skills-container>
+<main class="flex justify-center mt-5">
+  <div class="container align-center">
+    
+    <div class="flex flex-col">
+      <app-main-view [portfolio]="portfolioInfo"></app-main-view>
+      <app-job-timeline [jobs]="portfolioInfo?.career"></app-job-timeline>
+    </div>
+      <div class="flex sm:flex-row flex-col gap-5 sm:divide-x-3 ">
+        <app-skills-container class="border-sky-950" [skills]="portfolioInfo?.skills"></app-skills-container>
+        <app-job-details class="flex-grow mx-5 sm:ms-0" [career]="portfolioInfo?.career"></app-job-details>
+      </div>
+  </div>
 </main>
 <router-outlet />

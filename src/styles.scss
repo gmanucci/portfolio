@@ -1,4 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
-@import "tailwindcss";
+@use "tailwindcss";
+
+:root { 
+    --color-manucci-primary: var(--color-sky-950);
+    --color-manucci-secondary: var(--color-sky-900);
+    --color-manucci-light: var(--color-sky-600);
+
+    h1 {
+        color: var(--color-manucci-primary);
+    }
+}
 
 html, body { height: 100%; }
+
