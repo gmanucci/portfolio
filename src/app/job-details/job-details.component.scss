@@ -1,0 +1,15 @@
+%company-logos-shared { 
+    background-color: var(--color-manucci-primary);
+}
+
+%hover-company-logos-shared { 
+    background-color: var(--color-manucci-light);
+}
+
+.company-container { 
+    @extend %company-logos-shared;
+}
+
+:hover.company-container { 
+    @extend %hover-company-logos-shared;
+}

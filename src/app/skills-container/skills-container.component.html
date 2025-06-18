@@ -5,8 +5,8 @@
         <div class="flex skill-box content-center gap-1 p-1"
             *ngFor="let point of items"
         >
-        <mat-icon fontIcon="home"></mat-icon>
-        <p class="pe-1">{{point}}</p>
+        <mat-icon fontIcon={{point.icon}}></mat-icon>        
+        <p class="pe-1">{{point.name}}</p>
     </div>
     </div>
 </div>

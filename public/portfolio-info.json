@@ -1,5 +1,5 @@
 {
-  "title":"Senior Frontend Developer",
+  "title": "Senior Frontend Developer",
   "name": "Guilherme Manucci",
   "jobTitle": ".NET Senior Software Engineer",
   "location": "New York, NY, USA",
@@ -40,15 +40,44 @@
     }
   ],
   "skills": [
-    "Angular",
-    "TypeScript",
-    "JavaScript",
-    "HTML5",
-    "CSS3",
-    "SCSS",
-    "Git",
-    "REST APIs",
-    "Responsive Design",
-    "Agile Methodology"
+    {
+      "name": "Angular",
+      "icon": "angular"
+    },
+    {
+      "name": "TypeScript",
+      "icon": "img/angular.svg"
+    },
+    {
+      "name": "JavaScript",
+      "icon": "img/angular.svg"
+    },
+    {
+      "name": "HTML5",
+      "icon": "img/angular.svg"
+    },
+    {
+      "name": "CSS3",
+      "icon": "img/angular.svg"
+    },
+    {
+      "name": "SCSS",
+      "icon": "img/angular.svg"
+    },
+    {
+      "name": "Git",
+      "icon": "img/angular.svg"
+    },
+    {
+      "name": "REST APIs",
+      "icon": "img/angular.svg"
+    },
+    {
+      "name": "Responsive Design",
+      "icon": "img/angular.svg"
+    },    {
+      "name": "Agile Methodology",
+      "icon": "img/angular.svg"
+    }
   ]
 }

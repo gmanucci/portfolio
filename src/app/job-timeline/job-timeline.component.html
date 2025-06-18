@@ -2,7 +2,7 @@
     <div class="px-0 my-6 mx-5 w-full">
         <div class="timeline-container flex">
             <div class="line absolute rounded-md"></div>
-            <div *ngFor="let point of timeline" class="pin transition absolute" [style.left]="point.left"
+            <div *ngFor="let point of timeline" class="pin transition absolute ring-2 ring-white" [style.left]="point.left"
                 [title]="point.title + ' at ' + point.company"></div>
         </div>
     </div>

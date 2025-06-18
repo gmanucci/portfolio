@@ -1,4 +1,5 @@
 @use "tailwindcss";
+@use '@angular/material' as mat;
 
 :root { 
     --color-manucci-primary: var(--color-sky-950);
@@ -8,6 +9,10 @@
     h1 {
         color: var(--color-manucci-primary);
     }
+
+    @include mat.progress-spinner-overrides((
+    active-indicator-color: var(--color-manucci-primary),
+  ));
 }
 
 html, body { height: 100%; }

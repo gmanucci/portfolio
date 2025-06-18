@@ -5,10 +5,23 @@ import { HttpClient } from '@angular/common/http';
 import { JobTimelineComponent } from "./job-timeline/job-timeline.component";
 import { SkillsContainerComponent } from "./skills-container/skills-container.component";
 import { JobDetailsComponent } from "./job-details/job-details.component";
+import { SvgCustomIconsModule } from './svg-custom-icons/svg-custom-icons.module';
+import { CommonModule } from '@angular/common';
+import { timer } from 'rxjs';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, MainViewComponent, JobTimelineComponent, SkillsContainerComponent, JobDetailsComponent],
+  imports: [
+    RouterOutlet,
+    MainViewComponent, 
+    JobTimelineComponent, 
+    SkillsContainerComponent, 
+    JobDetailsComponent,
+    SvgCustomIconsModule,
+    CommonModule,
+    MatProgressSpinnerModule
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
