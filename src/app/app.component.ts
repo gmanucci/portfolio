@@ -9,6 +9,7 @@ import { SvgCustomIconsModule } from './svg-custom-icons/svg-custom-icons.module
 import { CommonModule } from '@angular/common';
 import { timer } from 'rxjs';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { SocialBarComponent } from './social-bar/social-bar.component';
 
 @Component({
   selector: 'app-root',
@@ -18,6 +19,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     JobTimelineComponent, 
     SkillsContainerComponent, 
     JobDetailsComponent,
+    SocialBarComponent,
     SvgCustomIconsModule,
     CommonModule,
     MatProgressSpinnerModule

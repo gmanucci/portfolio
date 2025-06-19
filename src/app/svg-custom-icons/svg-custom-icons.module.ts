@@ -23,8 +23,19 @@ export class SvgCustomIconsModule {
 
   private registerIcons(): void {
     const icons: { [key: string]: string } = {
-      javascript: '/img/javascript.svg',
-      angular: './img/angular.svg',
+      angular: 'img/angular.svg',
+      javascript: 'img/javascript.svg',
+      typescript: 'img/typescript.svg',
+      dotnet: 'img/dotnet.svg',
+      css: 'img/css.svg',
+      git: 'img/git.svg',
+      html: 'img/html.svg',
+      swagger: 'img/swagger.svg',
+      sass: 'img/sass.svg',
+      github: 'img/github.svg',
+      instagram: 'img/instagram.svg',
+      whatsapp: 'img/whatsapp.svg',
+      twitter: 'img/x.svg'
     };
 
     for (const [name, path] of Object.entries(icons)) {

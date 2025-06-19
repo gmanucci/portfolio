@@ -1,12 +1,9 @@
-
 <div class="mx-5 sm:w-50">
     <h1 class="flex flex-grow sm:justify-end justify-center">Skills</h1>
     <div class="flex flex-wrap sm:justify-end justify-center gap-1">
-        <div class="flex skill-box content-center gap-1 p-1"
-            *ngFor="let point of items"
-        >
-        <mat-icon fontIcon={{point.icon}}></mat-icon>        
-        <p class="pe-1">{{point.name}}</p>
-    </div>
+        <div class="flex skill-box content-center gap-1 p-1 group hover:bg-[var(--color-manucci-light)]" *ngFor="let point of items">
+            <mat-icon svgIcon={{point.icon}}></mat-icon>
+            <p class="pe-1 hidden group-hover:visible transition-all">{{point.name}}</p>
+        </div>
     </div>
 </div>

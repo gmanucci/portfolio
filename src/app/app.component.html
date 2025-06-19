@@ -4,6 +4,9 @@
       <mat-spinner class="transform ease-out will-change-transform self-center"></mat-spinner>
     </div>
     <div class="transform ease-out" [hidden]="!portfolioInfo">
+      <div class="absolute top-0 left-5 z-50">
+        <app-social-bar></app-social-bar>
+      </div>
       <div class="flex flex-col">
         <app-main-view [portfolio]="portfolioInfo"></app-main-view>
         <app-job-timeline [jobs]="portfolioInfo?.career"></app-job-timeline>
