@@ -2,6 +2,10 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.11.
 
+## Live Demo
+
+The portfolio is automatically deployed to GitHub Pages at: https://gmanucci.github.io/portfolio/
+
 ## Development server
 
 To start a local development server, run:
@@ -35,6 +39,16 @@ ng build
 ```
 
 This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+
+## Deployment
+
+The portfolio is automatically deployed to GitHub Pages when changes are pushed to the `main` branch. The deployment workflow:
+
+1. Builds the Angular application with the correct base-href (`/portfolio/`)
+2. Uploads the build artifacts to GitHub Pages
+3. Deploys to https://gmanucci.github.io/portfolio/
+
+To trigger a manual deployment, go to the Actions tab in GitHub and run the "Deploy to GitHub Pages" workflow.
 
 ## Running unit tests
 
