@@ -1,0 +1,22 @@
+[
+  { "id": 1, "name": "Cerveja Artesanal", "category": "Bebidas", "price": 18.90 },
+  { "id": 2, "name": "Refrigerante Lata", "category": "Bebidas", "price": 7.00 },
+  { "id": 3, "name": "Água Mineral", "category": "Bebidas", "price": 5.00 },
+  { "id": 4, "name": "Suco Natural", "category": "Bebidas", "price": 12.00 },
+  { "id": 5, "name": "Caipirinha", "category": "Bebidas", "price": 22.00 },
+  { "id": 6, "name": "Porção de Fritas", "category": "Petiscos", "price": 28.00 },
+  { "id": 7, "name": "Batata Rústica", "category": "Petiscos", "price": 32.00 },
+  { "id": 8, "name": "Isca de Frango", "category": "Petiscos", "price": 35.00 },
+  { "id": 9, "name": "Bolinho de Bacalhau", "category": "Petiscos", "price": 38.00 },
+  { "id": 10, "name": "Tábua de Frios", "category": "Petiscos", "price": 55.00 },
+  { "id": 11, "name": "X-Burguer", "category": "Lanches", "price": 32.00 },
+  { "id": 12, "name": "X-Bacon", "category": "Lanches", "price": 38.00 },
+  { "id": 13, "name": "X-Tudo", "category": "Lanches", "price": 45.00 },
+  { "id": 14, "name": "Sanduíche Natural", "category": "Lanches", "price": 25.00 },
+  { "id": 15, "name": "Filé ao Molho", "category": "Pratos", "price": 65.00 },
+  { "id": 16, "name": "Frango Grelhado", "category": "Pratos", "price": 52.00 },
+  { "id": 17, "name": "Peixe Frito", "category": "Pratos", "price": 58.00 },
+  { "id": 18, "name": "Pudim", "category": "Sobremesas", "price": 15.00 },
+  { "id": 19, "name": "Brownie com Sorvete", "category": "Sobremesas", "price": 22.00 },
+  { "id": 20, "name": "Açaí 300ml", "category": "Sobremesas", "price": 25.00 }
+]

@@ -1,0 +1,164 @@
+<div class="checkout-container max-w-4xl mx-auto px-4 py-6">
+
+  <!-- Header -->
+  <div class="flex items-center gap-3 mb-6">
+    <a [routerLink]="['/']" mat-icon-button class="!text-sky-950" matTooltip="Voltar ao portfólio">
+      <mat-icon>arrow_back</mat-icon>
+    </a>
+    <mat-icon class="text-sky-950 text-3xl!" style="font-size:2rem;width:2rem;height:2rem">receipt_long</mat-icon>
+    <h1 class="text-2xl font-bold text-sky-950 m-0">Checkout da Mesa</h1>
+  </div>
+
+  <!-- Loading -->
+  <div *ngIf="loading" class="flex justify-center py-12">
+    <mat-spinner diameter="48" aria-label="Carregando itens..."></mat-spinner>
+  </div>
+
+  <div *ngIf="!loading" class="flex flex-col gap-6">
+
+    <!-- Items List -->
+    <mat-card class="!rounded-xl shadow-md">
+      <mat-card-header class="pb-2">
+        <mat-card-title class="text-sky-950">Itens da Mesa</mat-card-title>
+        <mat-card-subtitle>Selecione os itens para incluir na conta</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+
+        <!-- Select All -->
+        <div class="flex items-center gap-2 py-2 border-b border-gray-200">
+          <mat-checkbox
+            [checked]="allSelected"
+            [indeterminate]="someSelected"
+            (change)="toggleAll($event.checked); onItemChange()">
+            <span class="font-medium text-sm">Selecionar todos</span>
+          </mat-checkbox>
+        </div>
+
+        <!-- Category Groups -->
+        <div *ngFor="let category of categories" class="mt-4">
+          <p class="text-xs font-semibold uppercase tracking-wider text-sky-700 mb-2">{{ category }}</p>
+
+          <div *ngFor="let item of itemsByCategory(category)"
+               class="flex items-center gap-3 py-2 px-2 rounded-lg hover:bg-sky-50 transition-colors group">
+
+            <mat-checkbox [(ngModel)]="item.selected" (ngModelChange)="onItemChange()"></mat-checkbox>
+
+            <span class="flex-1 text-sm" [class.font-semibold]="item.selected">{{ item.name }}</span>
+
+            <!-- Quantity -->
+            <div class="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity"
+                 [class.!opacity-100]="item.selected">
+              <button mat-icon-button
+                      [disabled]="item.quantity <= 1"
+                      (click)="item.quantity = item.quantity - 1; onItemChange()"
+                      class="!w-7 !h-7 !min-w-0">
+                <mat-icon class="text-sm!">remove</mat-icon>
+              </button>
+              <span class="w-5 text-center text-sm font-medium">{{ item.quantity }}</span>
+              <button mat-icon-button
+                      (click)="item.quantity = item.quantity + 1; onItemChange()"
+                      class="!w-7 !h-7 !min-w-0">
+                <mat-icon class="text-sm!">add</mat-icon>
+              </button>
+            </div>
+
+            <span class="text-sm font-semibold text-sky-950 min-w-16 text-right">
+              R$ {{ (item.price * item.quantity) | number:'1.2-2' }}
+            </span>
+          </div>
+        </div>
+
+      </mat-card-content>
+    </mat-card>
+
+    <!-- Summary & Split -->
+    <mat-card class="!rounded-xl shadow-md" *ngIf="selectedItems.length > 0">
+      <mat-card-header class="pb-2">
+        <mat-card-title class="text-sky-950">Resumo</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+
+        <div class="flex justify-between items-center py-2">
+          <span class="text-gray-600">{{ selectedItems.length }} {{ selectedItems.length === 1 ? 'item' : 'itens' }} selecionados</span>
+          <span class="text-xl font-bold text-sky-950">R$ {{ total | number:'1.2-2' }}</span>
+        </div>
+
+        <mat-divider class="my-3"></mat-divider>
+
+        <!-- People split -->
+        <div class="flex items-center gap-4 mt-3">
+          <mat-form-field appearance="outline" class="flex-1" subscriptSizing="dynamic">
+            <mat-label>Dividir entre</mat-label>
+            <input matInput type="number" min="1" max="50"
+                   [(ngModel)]="peopleCount"
+                   (ngModelChange)="bills = []"
+                   placeholder="1">
+            <mat-icon matSuffix>group</mat-icon>
+            <mat-hint>pessoas</mat-hint>
+          </mat-form-field>
+
+          <div class="text-right flex-1">
+            <p class="text-xs text-gray-500">Por pessoa</p>
+            <p class="text-2xl font-bold text-sky-950">R$ {{ perPersonAmount | number:'1.2-2' }}</p>
+          </div>
+        </div>
+
+        <button mat-flat-button
+                class="w-full mt-5 !bg-sky-950 !text-white !rounded-lg !py-6"
+                (click)="generateBills()"
+                [disabled]="total === 0">
+          <mat-icon>qr_code</mat-icon>
+          Gerar PIX {{ peopleCount > 1 ? '(' + peopleCount + ' cobranças)' : '' }}
+        </button>
+
+      </mat-card-content>
+    </mat-card>
+
+    <!-- Bills / PIX Codes -->
+    <div *ngIf="bills.length > 0" class="flex flex-col gap-4">
+      <h2 class="text-lg font-semibold text-sky-950 flex items-center gap-2">
+        <mat-icon>payments</mat-icon>
+        Cobranças PIX
+      </h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <mat-card *ngFor="let bill of bills"
+                  class="!rounded-xl shadow-md border border-sky-100">
+          <mat-card-header>
+            <mat-card-title class="text-base! text-sky-950">
+              Pessoa {{ bill.personIndex }}
+            </mat-card-title>
+            <mat-card-subtitle>
+              R$ {{ bill.amount | number:'1.2-2' }}
+            </mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content class="flex flex-col items-center gap-3 pt-2">
+
+            <!-- QR Code -->
+            <img *ngIf="bill.qrDataUrl"
+                 [src]="bill.qrDataUrl"
+                 [alt]="'QR Code PIX para Pessoa ' + bill.personIndex + ' - R$ ' + (bill.amount | number:'1.2-2')"
+                 class="rounded-lg border border-gray-200"
+                 width="180" height="180">
+
+            <!-- PIX code text -->
+            <div class="w-full bg-gray-50 rounded-lg p-3 relative">
+              <p class="text-xs text-gray-400 mb-1 font-semibold uppercase tracking-wide">Copia e Cola</p>
+              <p class="text-xs font-mono break-all text-gray-700 pr-8 max-h-16 overflow-hidden select-all">
+                {{ bill.pixCode }}
+              </p>
+              <button mat-icon-button
+                      class="!absolute !top-2 !right-2"
+                      [matTooltip]="'Copiar código PIX'"
+                      (click)="copyCode(bill.pixCode)">
+                <mat-icon class="text-sky-700">content_copy</mat-icon>
+              </button>
+            </div>
+
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+
+  </div>
+</div>

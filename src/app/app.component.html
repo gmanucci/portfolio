@@ -1,4 +1,4 @@
-<main class="flex justify-center mt-5">
+<main class="flex justify-center mt-5" [hidden]="isCheckout">
   <div class="container align-center">
     <div [hidden]="portfolioInfo" class="flex grow flex-col justify-center h-dvh -mt-5 transition-discrete">
       <mat-spinner class="transform ease-out will-change-transform self-center"></mat-spinner>
@@ -6,6 +6,15 @@
     <div class="transform ease-out" [hidden]="!portfolioInfo">
       <div class="absolute top-0 left-5 z-50">
         <app-social-bar></app-social-bar>
+      </div>
+      <!-- Checkout demo button -->
+      <div class="absolute top-0 right-5 z-50">
+        <a [routerLink]="['/checkout']"
+           mat-icon-button
+           matTooltip="Demo: Checkout de Mesa"
+           class="!text-sky-950 !p-2 !hover:bg-sky-950 !rounded-b-md transition-all !scale-75 !hover:scale-100 !hover:shadow !hover:text-white">
+          <mat-icon>receipt_long</mat-icon>
+        </a>
       </div>
       <div class="flex flex-col">
         <app-main-view [portfolio]="portfolioInfo"></app-main-view>
